@@ -1,10 +1,12 @@
 -#  This file is app/views/movies/index.html.haml
+require 'movies_helper.rb'
+
 %h2 All Movies
 
 %table#movies.table.table-striped.col-md-12
   %thead
     %tr
-      %th Movie Title
+      %td= link_to "Movie Title", movie_sort_by_name
       %th Rating
       %th Release Date
       %th More Info
