@@ -13,9 +13,7 @@ class MoviesController < ApplicationController
   def index
     @movies = Movie.all
     
-    def sort_by_title
-      flash[:notice] = "Requested to Sort by Name"
-    end
+    flash[:notice] = "Requested to Sort by Name"
   end
 
   def new
