@@ -12,6 +12,10 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.all
+    
+    def sort_by_title
+      flash[:notice] = "Requested to Sort by Name"
+    end
   end
 
   def new
@@ -42,8 +46,5 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
   
-  def movie_sort_by_name
-    flash[:notice] = "Requested to Sort by Name"
-  end
 
 end
