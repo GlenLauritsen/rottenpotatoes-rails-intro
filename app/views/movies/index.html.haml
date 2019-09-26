@@ -5,7 +5,7 @@
 %table#movies.table.table-striped.col-md-12
   %thead
     %tr
-      %td= link_to "Movie Title", nil, :on_click => movie.index.sort_by_name
+      %td= link_to "Movie Title", movie_path(movie), :on_click => index.sort_by_name
       %th Rating
       %th Release Date
       %th More Info
