@@ -1,5 +1,11 @@
 class MoviesController < ApplicationController
 
+  include Enumberable
+  
+  def each
+    return @all_ratings
+  end
+
   @all_ratings = ['G','PG','PG-13','R']
 
   def movie_params
