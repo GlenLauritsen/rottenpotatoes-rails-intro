@@ -1,6 +1,6 @@
 class Movie < ActiveRecord::Base
     
-    def getRatings
+    def getRatings()
        return ['G','PG','PG-13','R'] 
     end
     
