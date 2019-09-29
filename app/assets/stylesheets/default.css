@@ -10,9 +10,6 @@ html, body {
 	margin: 0;
 	padding: 0 20px 20px;
 	}
-	table#movies th.hilite {
-	  background-color: yellow;
-	}
 	a {
 	background: transparent;
 	color: maroon;
@@ -45,7 +42,7 @@ html, body {
 	table#movies th {
 	border: 2px solid white;
 	font-weight: bold;
-	background-color: wheat;
+	background-color: yellow;
 	}
 	table#movies th, table#movies td {
 	padding: 4px;
