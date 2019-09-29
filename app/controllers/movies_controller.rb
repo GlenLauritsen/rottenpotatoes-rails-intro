@@ -18,7 +18,7 @@ class MoviesController < ApplicationController
       @title_header = hilite
     elsif params[:order] == 'release_date'
       @movies = Movie.all.order('release_date')
-      @release_date_header = hilite
+      @release_header = hilite
     end
   end
 
