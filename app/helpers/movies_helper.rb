@@ -4,4 +4,8 @@ module MoviesHelper
     count.odd? ?  "odd" :  "even"
   end
   
+  def movies_helper()
+    
+  end
+  
 end
