@@ -13,8 +13,8 @@ class MoviesController < ApplicationController
   def index
     @movies = Movie.all
     
-    if params[:order].in? %w[title rating description release_date]
-      @movies.merge!(Movie.order("? DESC", params[:order]) )
+    if params[:order] == 'title'
+      @movies = Movie.all.order('title')
     end
   end
 
