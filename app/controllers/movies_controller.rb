@@ -8,6 +8,10 @@ class MoviesController < ApplicationController
 
   @all_ratings = ['G','PG','PG-13','R']
 
+  def each
+    return @all_ratings
+  end
+
   def movie_params
     params.require(:movie).permit(:title, :rating, :description, :release_date)
   end
