@@ -5,7 +5,7 @@
 %table#movies.table.table-striped.col-md-12
   %thead
     %tr
-      %td= link_to "Movie Title", movies_path(order: 'title')
+      %td= link_to "Movie Title", :class => movies_helper('title'), movies_path(order: 'title')
       %th Rating
       %td= link_to "Release Date", movies_path(order: 'release_date')
       %th More Info

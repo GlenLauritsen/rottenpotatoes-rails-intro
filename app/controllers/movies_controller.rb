@@ -15,10 +15,8 @@ class MoviesController < ApplicationController
     
     if params[:order] == 'title'
       @movies = Movie.all.order('title')
-      # @title_header = hilite
     elsif params[:order] == 'release_date'
       @movies = Movie.all.order('release_date')
-      # @release_date_header = hilite
     end
   end
 
