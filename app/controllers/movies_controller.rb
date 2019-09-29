@@ -12,8 +12,6 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.all
-    
-    flash[:notice] = "Requested to Sort by Name"
   end
 
   def new
