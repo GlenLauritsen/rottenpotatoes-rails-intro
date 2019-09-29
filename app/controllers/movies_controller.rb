@@ -24,7 +24,7 @@ class MoviesController < ApplicationController
   def index
     @movies = Movie.all
     
-    @all_ratings = ['G','PG','PG-13','R']
+    @all_ratings = Movie.getRatings()
     
     if params[:order] == 'title'
       @movies = Movie.all.order('title')
