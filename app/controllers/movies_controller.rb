@@ -6,11 +6,6 @@ class MoviesController < ApplicationController
     return @all_ratings
   end
 
-
-  def each
-    return @all_ratings
-  end
-
   def movie_params
     params.require(:movie).permit(:title, :rating, :description, :release_date)
   end
@@ -24,7 +19,7 @@ class MoviesController < ApplicationController
   def index
     @movies = Movie.all
     
-    #@all_ratings = ['G','PG','PG-13','R'] 
+    @all_ratings = ['G','PG','PG-13','R'] 
     
     if params[:order] == 'title'
       @movies = Movie.all.order('title')
@@ -32,9 +27,6 @@ class MoviesController < ApplicationController
       @movies = Movie.all.order('release_date')
     end
   end
-  
-  def getRatings
-    
   end
   
   def new
