@@ -1,10 +1,10 @@
 class MoviesController < ApplicationController
 
-  #include Enumberable
+  include Enumberable
   
-  #def each
-  #  return @all_ratings
-  #end
+  def each
+    return @all_ratings
+  end
 
 
   def each
@@ -24,7 +24,7 @@ class MoviesController < ApplicationController
   def index
     @movies = Movie.all
     
-    @all_ratings = Movie.getRatings
+    @all_ratings = ['G','PG','PG-13','R'] 
     
     if params[:order] == 'title'
       @movies = Movie.all.order('title')
@@ -32,7 +32,7 @@ class MoviesController < ApplicationController
       @movies = Movie.all.order('release_date')
     end
   end
-
+  
   def new
     # default: render 'new' template
   end
