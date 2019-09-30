@@ -33,6 +33,10 @@ class MoviesController < ApplicationController
     end
   end
   
+  def getRatings
+    
+  end
+  
   def new
     # default: render 'new' template
   end
