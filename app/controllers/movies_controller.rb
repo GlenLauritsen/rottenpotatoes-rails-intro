@@ -30,7 +30,7 @@ class MoviesController < ApplicationController
         @movies = Movie.all.order('release_date')
       end
     end
-    puts FinishedIndexMethod
+    puts "FinishedIndexMethod"
   end
   
   def new
