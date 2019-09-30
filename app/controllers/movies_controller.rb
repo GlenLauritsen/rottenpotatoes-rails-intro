@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
 
-  include Enumberable
+  include Enumerable
   
   def each
     return @all_ratings
