@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
   include Enumerable
   
   def each
-    return ['G','PG','PG-13','R']
+    return @all_ratings
   end
 
   def movie_params
@@ -19,6 +19,7 @@ class MoviesController < ApplicationController
   def index
     @movies = Movie.all
     
+    puts @all_ratings.inspect
     @all_ratings = ['G','PG','PG-13','R'] 
     
     if params[:order] == 'title'
