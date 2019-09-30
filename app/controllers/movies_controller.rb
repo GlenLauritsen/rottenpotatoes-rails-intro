@@ -23,12 +23,12 @@ class MoviesController < ApplicationController
   def index
     @movies = Movie.all
     
-    puts @all_ratings.inspect
-    
-    if params[:order] == 'title'
-      @movies = Movie.all.order('title')
-    elsif params[:order] == 'release_date'
-      @movies = Movie.all.order('release_date')
+    if params
+      if params[:order] == 'title'
+        @movies = Movie.all.order('title')
+      elsif params[:order] == 'release_date'
+        @movies = Movie.all.order('release_date')
+      end
     end
   end
   
