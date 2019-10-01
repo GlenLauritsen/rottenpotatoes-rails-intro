@@ -38,6 +38,9 @@ class MoviesController < ApplicationController
   end
 
   def create
+    if not session
+      session[params]
+    end
     @movie = Movie.create!(movie_params)
     flash[:notice] = "#{@movie.title} was successfully created."
     
