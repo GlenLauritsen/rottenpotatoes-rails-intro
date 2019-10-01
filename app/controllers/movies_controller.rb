@@ -22,6 +22,7 @@ class MoviesController < ApplicationController
       end
     end
     
+    session[params]
     puts session
   end
   
