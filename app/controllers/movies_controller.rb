@@ -29,16 +29,10 @@ class MoviesController < ApplicationController
     @all_ratings = Movie.ratings
     @movies = Movie.with_ratings(params[:ratings])
     
-    if params[:order]
-      if params[:order] == 'title'
-        @movies = @movies.order('title')
-        #@titleHeader = hilite
-      elsif params[:order] == 'release_date'
-        @movies = @movies.order('release_date')
-        #@releaseHeader = hilite
-      end
-    else
-      @movies = Movie.with_ratings(params[:ratings])
+    if params[:order] == 'title'
+      @movies = @movies.order('title')
+    elsif params[:order] == 'release_date'
+      @movies = @movies.order('release_date')
     end
     
     session[:ratings] = params[:ratings]
