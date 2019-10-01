@@ -4,8 +4,8 @@ class Movie < ActiveRecord::Base
        return ['G','PG','PG-13','R'] 
     end
     
-    def Movie.getWithRatings()
-        
+    def Movie.with_ratings(ratings)
+        puts ratings
     end
     
 end
