@@ -12,11 +12,11 @@ class MoviesController < ApplicationController
 
   def index
     # reload session or update session
-    if @refresh_session
-      params = session
-    else
-      session[params]
-    end
+    #if @refresh_session
+    #  params = session
+    #else
+    #  session[params]
+    #end
     
     @movies = Movie.with_ratings(params[:ratings])
     @all_ratings = Movie.ratings
@@ -41,8 +41,7 @@ class MoviesController < ApplicationController
     @movie = Movie.create!(movie_params)
     flash[:notice] = "#{@movie.title} was successfully created."
     
-    #@refresh_session = true;
-    session[params]
+    @refresh_session = true;
     redirect_to movies_path
   end
 
