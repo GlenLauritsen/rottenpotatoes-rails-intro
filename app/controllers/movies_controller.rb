@@ -1,18 +1,5 @@
 class MoviesController < ApplicationController
 
-  include Enumerable
-  
-  def initialize
-    @all_ratings = ['G','PG','PG-13','R'] 
-  end
-  
-  def each
-    yield 'G'
-    yield 'PG'
-    yield 'PG-13'
-    yield 'R'
-  end
-
   def movie_params
     params.require(:movie).permit(:title, :rating, :description, :release_date)
   end
@@ -26,6 +13,7 @@ class MoviesController < ApplicationController
   def index
     @movies = Movie.all
     
+    @all_ratings = ['G','PG','PG-13','R'] 
     if params[:order]
       if params[:order] == 'title'
         @movies = Movie.all.order('title')
@@ -33,7 +21,6 @@ class MoviesController < ApplicationController
         @movies = Movie.all.order('release_date')
       end
     end
-    puts "FinishedIndexMethod"
   end
   
   def new
