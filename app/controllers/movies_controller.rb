@@ -35,10 +35,10 @@ class MoviesController < ApplicationController
     
     if params[:order]
       if params[:order] == 'title'
-        @movies = Movie.all.order('title')
+        @movies = Movie.with_ratings(params[:ratings]).order('title')
         @titleHeader = hilite
       elsif params[:order] == 'release_date'
-        @movies = Movie.all.order('release_date')
+        @movies = Movie.with_ratings(params[:ratings]).order('release_date')
         @releaseHeader = hilite
       end
     end
