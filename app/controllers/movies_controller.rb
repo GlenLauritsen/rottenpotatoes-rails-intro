@@ -21,7 +21,7 @@ class MoviesController < ApplicationController
         @movies = Movie.all.order('release_date')
       end
     end
-    Movie.with_ratings(params[:ratings])
+    puts Movie.with_ratings(params[:ratings])
   end
   
   def new
