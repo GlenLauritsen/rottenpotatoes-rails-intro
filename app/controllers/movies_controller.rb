@@ -36,7 +36,9 @@ class MoviesController < ApplicationController
       end
     end
     
-    @checkboxesChecked = params[:ratings].keys
+    if params[:ratings]
+      @checkboxesChecked = params[:ratings].keys
+    end
     
     session[:params] = params
   end
