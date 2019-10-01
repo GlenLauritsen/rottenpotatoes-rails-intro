@@ -12,8 +12,6 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @checkboxesChecked = Movie.ratings
-    
     if params[:commit] != "Refresh"
       params[:order] = session[:order]
       
@@ -29,14 +27,14 @@ class MoviesController < ApplicationController
     end
     @checkboxesChecked = params[:ratings].keys
     @all_ratings = Movie.ratings
-    @movies = Movie.all
+    @movies = Movie.with_ratings(params[:ratings])
     
     if params[:order]
       if params[:order] == 'title'
-        @movies = Movie.with_ratings(params[:ratings]).order('title')
+        @movies = @movies.order('title')
         #@titleHeader = hilite
       elsif params[:order] == 'release_date'
-        @movies = Movie.with_ratings(params[:ratings]).order('release_date')
+        @movies = @movies.order('release_date')
         #@releaseHeader = hilite
       end
     else
