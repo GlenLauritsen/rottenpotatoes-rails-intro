@@ -12,9 +12,9 @@
 %table#movies.table.table-striped.col-md-12
   %thead
     %tr
-      %td= link_to "Movie Title", movies_path(order: 'title')
+      %td= link_to "Movie Title", movies_path(order: 'title'), class: @titleHeader
       %th Rating
-      %td= link_to "Release Date", movies_path(order: 'release_date')
+      %td= link_to "Release Date", movies_path(order: 'release_date'), class: @releaseHeader
       %th More Info
   %tbody
     - @movies.each do |movie|
