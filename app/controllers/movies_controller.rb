@@ -13,6 +13,7 @@ class MoviesController < ApplicationController
   def index
     # reload session or update session
     if @refresh_session == true
+      puts "Reloading Session"
       params[:ratings] = session[:ratings]
       params[:order] = session[:order]
       @refresh_session = false;
@@ -30,7 +31,6 @@ class MoviesController < ApplicationController
     end
     
     session[:params] = params
-    puts session
   end
   
   def new
