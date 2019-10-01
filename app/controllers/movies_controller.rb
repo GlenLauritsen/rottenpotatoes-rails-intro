@@ -19,6 +19,7 @@ class MoviesController < ApplicationController
     if !params[:commit]
       params[:ratings] = session[:ratings]
       params[:order] = session[:order]
+      @checkboxesChecked = params[:ratings].keys
     end
     
     @movies = Movie.with_ratings(params[:ratings])
@@ -30,10 +31,6 @@ class MoviesController < ApplicationController
       elsif params[:order] == 'release_date'
         @movies = Movie.all.order('release_date')
       end
-    end
-    
-    if params[:ratings]
-      @checkboxesChecked = params[:ratings].keys
     end
     
     session[:params] = params
