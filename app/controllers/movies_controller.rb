@@ -17,13 +17,8 @@ class MoviesController < ApplicationController
     
     @checkboxesChecked = Movie.ratings
     
-    if @refresh_session == true
-      puts "Reloading Session"
-      params[:ratings] = session[:ratings]
-      params[:order] = session[:order]
-      
-      @refresh_session = false;
-    end
+    params[:ratings] = session[:ratings]
+    params[:order] = session[:order]
     
     @movies = Movie.with_ratings(params[:ratings])
     @all_ratings = Movie.ratings
