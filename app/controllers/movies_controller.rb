@@ -17,6 +17,7 @@ class MoviesController < ApplicationController
     puts params
     
     if params[:commit] != "Refresh"
+      puts "Refreshing"
       params[:ratings] = session[:ratings]
       params[:order] = session[:order]
       
