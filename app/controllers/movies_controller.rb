@@ -30,17 +30,18 @@ class MoviesController < ApplicationController
     end
     @checkboxesChecked = params[:ratings].keys
     
-    @movies = Movie.with_ratings(params[:ratings])
     @all_ratings = Movie.ratings
     
     if params[:order]
       if params[:order] == 'title'
         @movies = Movie.with_ratings(params[:ratings]).order('title')
-        @titleHeader = hilite
+        #@titleHeader = hilite
       elsif params[:order] == 'release_date'
         @movies = Movie.with_ratings(params[:ratings]).order('release_date')
-        @releaseHeader = hilite
+        #@releaseHeader = hilite
       end
+    else
+      @movies = Movie.with_ratings(params[:ratings])
     end
     
     session[:ratings] = params[:ratings]
