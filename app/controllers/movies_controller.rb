@@ -16,8 +16,10 @@ class MoviesController < ApplicationController
     
     puts params
     
-    params[:ratings] = session[:ratings]
-    params[:order] = session[:order]
+    if !params[:commit]
+      params[:ratings] = session[:ratings]
+      params[:order] = session[:order]
+    end
     
     @movies = Movie.with_ratings(params[:ratings])
     @all_ratings = Movie.ratings
