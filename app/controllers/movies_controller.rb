@@ -23,7 +23,7 @@ class MoviesController < ApplicationController
       if params[:ratings]
         @checkboxesChecked = params[:ratings].keys
       else
-        params[:ratings] = Movie.ratings
+        params[:ratings] = {"G"=>"G", "PG"=>"PG", "PG-13"=>"PG-13", "R"=>"R"}
       end
       
     end
