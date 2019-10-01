@@ -21,7 +21,9 @@ class MoviesController < ApplicationController
       params[:ratings] = session[:ratings]
       params[:order] = session[:order]
       
-      if !params[:ratings]
+      if session[:ratings]
+        params[:ratings] = session[:ratings]
+      else if !params[:ratings]
         params[:ratings] = {"G"=>"G", "PG"=>"PG", "PG-13"=>"PG-13", "R"=>"R"}
       end
       
