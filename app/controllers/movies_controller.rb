@@ -7,7 +7,10 @@ class MoviesController < ApplicationController
   end
   
   def each
-    return @all_ratings
+    yield 'G'
+    yield 'PG'
+    yield 'PG-13'
+    yield 'R'
   end
 
   def movie_params
