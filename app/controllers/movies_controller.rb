@@ -19,7 +19,13 @@ class MoviesController < ApplicationController
     if !params[:commit]
       params[:ratings] = session[:ratings]
       params[:order] = session[:order]
-      @checkboxesChecked = params[:ratings].keys
+      
+      if params[:ratings]
+        @checkboxesChecked = params[:ratings].keys
+      else
+        @checkboxesChecked = nil
+      end
+      
     end
     
     @movies = Movie.with_ratings(params[:ratings])
