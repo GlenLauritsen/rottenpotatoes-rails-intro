@@ -12,10 +12,14 @@ class MoviesController < ApplicationController
 
   def index
     # reload session or update session
+    
+    @checkboxesChecked = Movie.ratings
+    
     if @refresh_session == true
       puts "Reloading Session"
       params[:ratings] = session[:ratings]
       params[:order] = session[:order]
+      
       @refresh_session = false;
     end
     
@@ -29,6 +33,8 @@ class MoviesController < ApplicationController
         @movies = Movie.all.order('release_date')
       end
     end
+    
+    @checkboxesChecked = params[:ratings].keys
     
     session[:params] = params
   end
