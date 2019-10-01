@@ -11,7 +11,7 @@ class MoviesController < ApplicationController
   end
 
   def index
-    reload session or update session
+    # reload session or update session
     if @refresh_session == true
       params[:ratings] = session[:ratings]
       params[:order] = session[:order]
