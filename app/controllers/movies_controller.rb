@@ -21,13 +21,12 @@ class MoviesController < ApplicationController
       params[:ratings] = session[:ratings]
       params[:order] = session[:order]
       
-      if params[:ratings]
-        @checkboxesChecked = params[:ratings].keys
-      else
+      if !params[:ratings]
         params[:ratings] = {"G"=>"G", "PG"=>"PG", "PG-13"=>"PG-13", "R"=>"R"}
       end
       
     end
+    @checkboxesChecked = params[:ratings].keys
     
     @movies = Movie.with_ratings(params[:ratings])
     @all_ratings = Movie.ratings
