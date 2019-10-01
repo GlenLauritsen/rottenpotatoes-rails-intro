@@ -12,11 +12,12 @@ class MoviesController < ApplicationController
 
   def index
     # reload session or update session
-    #if @refresh_session
-    #  params = session
-    #else
-    #  session[params]
-    #end
+    if @refresh_session == true
+      params = session
+      @refresh_session = false;
+    else
+      session[params]
+    end
     
     @movies = Movie.with_ratings(params[:ratings])
     @all_ratings = Movie.ratings
