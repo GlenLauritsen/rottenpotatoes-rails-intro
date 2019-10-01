@@ -15,7 +15,6 @@ class MoviesController < ApplicationController
     @checkboxesChecked = Movie.ratings
     
     if params[:commit] != "Refresh"
-      puts "Refreshing"
       params[:order] = session[:order]
       
       if session[:ratings]
@@ -29,8 +28,8 @@ class MoviesController < ApplicationController
       params[:ratings] = session[:ratings]
     end
     @checkboxesChecked = params[:ratings].keys
-    
     @all_ratings = Movie.ratings
+    @movies = Movie.all
     
     if params[:order]
       if params[:order] == 'title'
