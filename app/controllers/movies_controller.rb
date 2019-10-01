@@ -2,8 +2,9 @@ class MoviesController < ApplicationController
 
   include Enumerable
   
-  
-  @all_ratings = ['G','P','PG-13','R'] 
+  def initialize
+    @all_ratings = ['G','PG','PG-13','R'] 
+  end
   
   def each
     yield 'G'
