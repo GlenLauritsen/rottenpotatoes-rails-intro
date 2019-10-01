@@ -11,6 +11,9 @@ class MoviesController < ApplicationController
   end
 
   def index
+    # reload session
+    params = session
+    
     @movies = Movie.with_ratings(params[:ratings])
     @all_ratings = Movie.ratings
     
@@ -56,6 +59,5 @@ class MoviesController < ApplicationController
     flash[:notice] = "Movie '#{@movie.title}' deleted."
     redirect_to movies_path
   end
-  
 
 end
