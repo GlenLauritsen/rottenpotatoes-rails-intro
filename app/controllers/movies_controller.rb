@@ -12,10 +12,9 @@ class MoviesController < ApplicationController
   end
 
   def index
-    # reload session or update session
-    puts params
-    
     @checkboxesChecked = Movie.ratings
+    
+    put params
     
     params[:ratings] = session[:ratings]
     params[:order] = session[:order]
