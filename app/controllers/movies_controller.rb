@@ -12,7 +12,7 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.all
-    @all_ratings = Movie.ratings
+    @all_ratings = Movie.with_ratings(params[:ratings])
     
     if params[:order]
       if params[:order] == 'title'
@@ -21,7 +21,6 @@ class MoviesController < ApplicationController
         @movies = Movie.all.order('release_date')
       end
     end
-    puts Movie.with_ratings(params[:ratings])
   end
   
   def new
