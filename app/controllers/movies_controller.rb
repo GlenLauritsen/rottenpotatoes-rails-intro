@@ -25,9 +25,13 @@ class MoviesController < ApplicationController
       elsif !params[:ratings]
         params[:ratings] = {"G"=>"G", "PG"=>"PG", "PG-13"=>"PG-13", "R"=>"R"}
       end
-      
     end
-    @checkboxesChecked = params[:ratings].keys
+    
+    if !params[:ratings]
+      params[:ratings] = {"G"=>"G", "PG"=>"PG", "PG-13"=>"PG-13", "R"=>"R"}
+    else
+      @checkboxesChecked = params[:ratings].keys
+    end
     
     @movies = Movie.with_ratings(params[:ratings])
     @all_ratings = Movie.ratings
