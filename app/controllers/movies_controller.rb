@@ -29,6 +29,8 @@ class MoviesController < ApplicationController
     @all_ratings = Movie.ratings
     @movies = Movie.with_ratings(params[:ratings])
     
+    puts params[:order]
+    
     if params[:order] == 'title'
       @movies = @movies.order('title')
     elsif params[:order] == 'release_date'
