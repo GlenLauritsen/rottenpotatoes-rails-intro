@@ -13,7 +13,7 @@ class MoviesController < ApplicationController
   def index
     # reload session or update session
     if @refresh_session == true
-      params = session
+      params = session[:params]
       @refresh_session = false;
     else
       session[params]
@@ -30,7 +30,7 @@ class MoviesController < ApplicationController
       end
     end
     
-    session[params]
+    session[:params] = params
     puts session
   end
   
