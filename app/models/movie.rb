@@ -8,7 +8,7 @@ class Movie < ActiveRecord::Base
         if ratings
             return Movie.all.where('rating IN (?)', ratings.keys)
         else
-            return nil
+            return Movie.all
         end
     end
     
