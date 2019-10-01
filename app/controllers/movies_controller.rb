@@ -18,7 +18,6 @@ class MoviesController < ApplicationController
     
     if params[:commit] != "Refresh"
       puts "Refreshing"
-      params[:ratings] = session[:ratings]
       params[:order] = session[:order]
       
       if session[:ratings]
@@ -41,7 +40,8 @@ class MoviesController < ApplicationController
       end
     end
     
-    session[:params] = params
+    session[:ratings] = params[:ratings]
+    session[:order] = params[:order]
   end
   
   def new
