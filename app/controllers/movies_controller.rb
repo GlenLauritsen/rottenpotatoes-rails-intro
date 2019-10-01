@@ -8,12 +8,12 @@ class MoviesController < ApplicationController
     id = params[:id] # retrieve movie ID from URI route
     @movie = Movie.find(id) # look up movie by unique ID
     
-    @refresh_session = true;
     # will render app/views/movies/show.<extension> by default
   end
 
   def index
     # reload session or update session
+    puts params
     
     @checkboxesChecked = Movie.ratings
     
@@ -51,7 +51,6 @@ class MoviesController < ApplicationController
     @movie = Movie.create!(movie_params)
     flash[:notice] = "#{@movie.title} was successfully created."
     
-    @refresh_session = true;
     redirect_to movies_path
   end
 
@@ -64,7 +63,6 @@ class MoviesController < ApplicationController
     @movie.update_attributes!(movie_params)
     flash[:notice] = "#{@movie.title} was successfully updated."
     
-    @refresh_session = true;
     redirect_to movie_path(@movie)
   end
 
@@ -73,7 +71,6 @@ class MoviesController < ApplicationController
     @movie.destroy
     flash[:notice] = "Movie '#{@movie.title}' deleted."
     
-    @refresh_session = true;
     redirect_to movies_path
   end
 
