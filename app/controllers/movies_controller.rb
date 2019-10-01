@@ -13,7 +13,9 @@ class MoviesController < ApplicationController
 
   def index
     if params[:commit] != "Refresh"
-      params[:order] = session[:order]
+      if !params[:order]
+        params[:order] = session[:order]
+      end
       
       if session[:ratings]
         params[:ratings] = session[:ratings]
