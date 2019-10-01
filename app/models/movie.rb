@@ -5,7 +5,11 @@ class Movie < ActiveRecord::Base
     end
     
     def Movie.with_ratings(ratings)
-        return Movie.all.where('rating IN (?)', ratings.keys)
+        if ratings
+            return Movie.all.where('rating IN (?)', ratings.keys)
+        else
+            return nil
+        end
     end
     
 end
