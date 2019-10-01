@@ -24,7 +24,6 @@ class MoviesController < ApplicationController
         @checkboxesChecked = params[:ratings].keys
       else
         params[:ratings] = Movie.ratings
-        @checkboxesChecked = params[:ratings].keys
       end
       
     end
