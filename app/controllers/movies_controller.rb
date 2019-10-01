@@ -21,6 +21,8 @@ class MoviesController < ApplicationController
         @movies = Movie.all.order('release_date')
       end
     end
+    
+    puts session
   end
   
   def new
