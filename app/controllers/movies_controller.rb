@@ -2,10 +2,6 @@ class MoviesController < ApplicationController
 
   include Enumerable
   
-  def initialize
-    @all_ratings = ['G','P','PG-13','R'] 
-  end
-  
   def each
     yield 'G'
     yield 'PG'
@@ -25,6 +21,7 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.all
+    @all_ratings = ['G','P','PG-13','R'] 
     
     if params[:order]
       if params[:order] == 'title'
