@@ -26,7 +26,7 @@ class MoviesController < ApplicationController
     end
     
     if !params[:ratings]
-      params[:ratings] = {"G"=>"G", "PG"=>"PG", "PG-13"=>"PG-13", "R"=>"R"}
+      params[:ratings] = session[:ratings]
     else
       @checkboxesChecked = params[:ratings].keys
     end
