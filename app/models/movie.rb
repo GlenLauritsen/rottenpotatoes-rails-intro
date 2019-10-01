@@ -5,7 +5,7 @@ class Movie < ActiveRecord::Base
     end
     
     def Movie.with_ratings(ratings)
-        return Movie.all.where("rating = 'G'")
+        return Movie.all.where("rating = 'ratings.keys'")
     end
     
 end
