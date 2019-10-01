@@ -14,8 +14,6 @@ class MoviesController < ApplicationController
   def index
     @checkboxesChecked = Movie.ratings
     
-    puts params
-    
     if params[:commit] != "Refresh"
       puts "Refreshing"
       params[:order] = session[:order]
