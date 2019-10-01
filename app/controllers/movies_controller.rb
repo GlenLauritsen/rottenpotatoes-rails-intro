@@ -11,8 +11,12 @@ class MoviesController < ApplicationController
   end
 
   def index
-    # reload session
-    params = session
+    # reload session or update session
+    if @refresh_session
+      params = session
+    else
+      session[params]
+    end
     
     @movies = Movie.with_ratings(params[:ratings])
     @all_ratings = Movie.ratings
@@ -34,11 +38,10 @@ class MoviesController < ApplicationController
   end
 
   def create
-    # setup session hash
-    session[params]
-    
     @movie = Movie.create!(movie_params)
     flash[:notice] = "#{@movie.title} was successfully created."
+    
+    @refresh_session = true;
     redirect_to movies_path
   end
 
@@ -50,6 +53,8 @@ class MoviesController < ApplicationController
     @movie = Movie.find params[:id]
     @movie.update_attributes!(movie_params)
     flash[:notice] = "#{@movie.title} was successfully updated."
+    
+    @refresh_session = true;
     redirect_to movie_path(@movie)
   end
 
@@ -57,6 +62,8 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     @movie.destroy
     flash[:notice] = "Movie '#{@movie.title}' deleted."
+    
+    @refresh_session = true;
     redirect_to movies_path
   end
 
