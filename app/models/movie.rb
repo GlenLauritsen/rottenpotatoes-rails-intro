@@ -5,7 +5,7 @@ class Movie < ActiveRecord::Base
     end
     
     def Movie.with_ratings(ratings)
-        puts ratings
+        puts ratings.keys
     end
     
 end
