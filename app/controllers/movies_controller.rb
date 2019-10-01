@@ -35,10 +35,10 @@ class MoviesController < ApplicationController
     
     if params[:order] == 'title'
       @movies = @movies.order('title')
-      @titleHeader = "hilite"
+      @titleHeader = "th.hilite"
     elsif params[:order] == 'release_date'
       @movies = @movies.order('release_date')
-      @releaseHeader = "hilite"
+      @releaseHeader = "th.hilite"
     end
     
     session[:ratings] = params[:ratings]
